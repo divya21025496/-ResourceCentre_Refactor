@@ -3,7 +3,14 @@ import java.util.ArrayList;
 public class ResourceCentre {
 
 
+
 	private static final int OPTION_VIEW = 1;
+
+	private static final int OPTION_RETURN = 4;
+	private static final int OPTION_LOAN = 3;
+	private static final int OPTION_ADD = 2;
+	
+
 	private static final int OPTION_QUIT = 5;
 	public static void main(String[] args) {
 
@@ -27,10 +34,14 @@ public class ResourceCentre {
 				ResourceCentre.viewAllCamcorder(camcorderList);
 				ResourceCentre.viewAllChromebook(chromebookList);
 
-			} else if (option == 2) {
+			} else if (option == OPTION_ADD) {
 				// Add a new item
 				ResourceCentre.setHeader("ADD");			
+
 				itemTypeMenu();
+
+				itemTypeMenu();  //extract method
+
 				
 				int itemType = Helper.readInt("Enter option to select item type > ");
 
@@ -50,7 +61,7 @@ public class ResourceCentre {
 					System.out.println("Invalid type");
 				}
 
-			} else if (option == 3) {
+			} else if (option == OPTION_LOAN) {
 				// Loan item
 				ResourceCentre.setHeader("LOAN");			
 				itemTypeMenu();
@@ -67,7 +78,7 @@ public class ResourceCentre {
 					System.out.println("Invalid type");
 				}
 
-			} else if (option == 4) {
+			} else if (option == OPTION_RETURN) {
 				// Return item
 				ResourceCentre.setHeader("RETURN");				
 				itemTypeMenu();
@@ -116,16 +127,7 @@ public class ResourceCentre {
 		Helper.line(80, "-");
 	}
 
-	public static String showAvailability(boolean isAvailable) {
-		String avail;
 
-		if (isAvailable == true) {
-			avail = "Yes";
-		} else {
-			avail = "No";
-		}
-		return avail;
-	}
 
 	//================================= Option 1 View (CRUD - Read) =================================
 	public static String retrieveAllCamcorder(ArrayList<Camcorder> camcorderList) {
@@ -135,7 +137,7 @@ public class ResourceCentre {
 
 			
 			output += String.format("%-84s\n", camcorderList.get(i).toString());
-			
+
 		}
 		return output;
 	}
@@ -268,7 +270,8 @@ public class ResourceCentre {
 		boolean isReturned = false;
 
 		for (int i = 0; i < camcorderList.size(); i++) {
-			if (tag.equalsIgnoreCase(camcorderList.get(i).getAssetTag())
+			String assetTag = camcorderList.get(i).getAssetTag();
+			if (tag.equalsIgnoreCase(assetTag)
 					&& camcorderList.get(i).getIsAvailable() == false) {
 				camcorderList.get(i).setIsAvailable(true);
 				camcorderList.get(i).setDueDate("");
@@ -296,7 +299,8 @@ public class ResourceCentre {
 		boolean isReturned = false;
 
 		for (int i = 0; i < chromebookList.size(); i++) {
-			if (tag.equalsIgnoreCase(chromebookList.get(i).getAssetTag())
+			String assetTag = chromebookList.get(i).getAssetTag();
+			if (tag.equalsIgnoreCase(assetTag)
 					&& chromebookList.get(i).getIsAvailable() == false) {
 				chromebookList.get(i).setIsAvailable(true);
 				chromebookList.get(i).setDueDate("");
