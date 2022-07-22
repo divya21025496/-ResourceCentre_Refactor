@@ -12,8 +12,15 @@ public class Camcorder extends Item{
 	}
 	
 	public String toString(){
-		// Write your codes here
+<<<<<<< HEAD
 		
+=======
+>>>>>>> branch 'master' of https://github.com/divya21025496/-ResourceCentre_Refactor.git
+		// Write your codes here
+<<<<<<< HEAD
+=======
+		
+>>>>>>> branch 'master' of https://github.com/divya21025496/-ResourceCentre_Refactor.git
 		String output = super.toString();
 		output = String.format("%-63s %-20d", output, opticalZoom);
 		return output;

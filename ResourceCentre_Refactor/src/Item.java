@@ -14,7 +14,10 @@ public class Item {
 	public String toString() {
 		
 		// Write your codes here
+<<<<<<< HEAD
+=======
 		
+>>>>>>> branch 'master' of https://github.com/divya21025496/-ResourceCentre_Refactor.git
 		String itemInfo = String.format("%-10s %-30s %-10s %-10s", assetTag,
 				description, 
 				showAvailability(isAvailable),
@@ -22,7 +25,10 @@ public class Item {
 		
 		return itemInfo;
 	}
+<<<<<<< HEAD
+=======
 	
+>>>>>>> branch 'master' of https://github.com/divya21025496/-ResourceCentre_Refactor.git
 	public String showAvailability(boolean isAvailable) {
 		String avail;
 
