@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class ResourceCentre {
 
-// Demo CI/CD
+// Demo CI/CD  done by: Jerstine
 
 	private static final int OPTION_VIEW = 1;
 
